@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.herman.demo.test.dao.ITestDao">
+
+    <!--实体映射-->
+    <resultMap id="base_result_map" type="com.herman.demo.test.entity.Test">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+
+    <!-- 根据PrimaryKey获取对象-->
+    <select id="get" parameterType="java.lang.Long" resultMap="base_result_map">
+        select
+            `id`,
+            `name`
+        from
+            test
+        where id=#{id}
+    </select>
+
+</mapper>
